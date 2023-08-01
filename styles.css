@@ -1,0 +1,54 @@
+
+    body {
+      background-color: black;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    h1 {
+      color: whitesmoke;
+      text-align: center;
+    }
+    
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .input-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .input-container label {
+      color: #fff;
+      margin-right: 5px;
+    }
+    
+    .input-container input {
+      padding: 5px;
+    }
+    
+    .convert-btn {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background-color: #ff5500;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .result {
+      color: floralwhite;
+      text-align: center;
+    }
+
+    .label {
+      color: azure;
+    }
+  
