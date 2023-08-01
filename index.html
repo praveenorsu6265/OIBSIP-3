@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+  <link rel="stylesheet" type="text/css" href="styles3.css">
+</head>
+<body>
+  <div class="container">
+    <div>
+      <h1>Temperature Converter</h1>
+      <div class="input-container">
+        <label>Temperature:</label>
+        <input type="text" id="temperatureInput" placeholder="Enter temperature">
+      </div>
+      <div class="input-container">
+        <label>From:</label>
+        <select id="fromUnit">
+          <option value="celsius">Celsius</option>
+          <option value="fahrenheit">Fahrenheit</option>
+          <option value="kelvin">Kelvin</option>
+        </select>
+      </div>
+      <div class="input-container">
+        <label>To:</label>
+        <select id="toUnit">
+          <option value="celsius">Celsius</option>
+          <option value="fahrenheit">Fahrenheit</option>
+          <option value="kelvin">Kelvin</option>
+        </select>
+      </div>
+      <button class="convert-btn" onclick="convertTemperature()">Convert</button>
+      <div class="result">
+        <span id="convertedTemperature"></span>
+        <span id="convertedUnit"></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function convertTemperature() {
+      var temperatureInput = document.getElementById('temperatureInput');
+      var fromUnit = document.getElementById('fromUnit').value;
+      var toUnit = document.getElementById('toUnit').value;
+      var convertedTemperature = document.getElementById('convertedTemperature');
+      var convertedUnit = document.getElementById('convertedUnit');
+
+      var temperature = parseFloat(temperatureInput.value);
+
+      if (isNaN(temperature)) {
+        convertedTemperature.textContent = 'Invalid input';
+        convertedUnit.textContent = '';
+        return;
+      }
+
+      if (fromUnit === 'celsius' && toUnit === 'fahrenheit') {
+        var convertedValue = (temperature * 9 / 5) + 32;
+        convertedTemperature.textContent = convertedValue.toFixed(2);
+        convertedUnit.textContent = '°F';
+      } else if (fromUnit === 'celsius' && toUnit === 'kelvin') {
+        var convertedValue = temperature + 273.15;
+        convertedTemperature.textContent = convertedValue.toFixed(2);
+        convertedUnit.textContent = 'K';
+      } else if (fromUnit === 'fahrenheit' && toUnit === 'celsius') {
+        var convertedValue = (temperature - 32) * 5 / 9;
+        convertedTemperature.textContent = convertedValue.toFixed(2);
+        convertedUnit.textContent = '°C';
+      } else if (fromUnit === 'fahrenheit' && toUnit === 'kelvin') {
+        var convertedValue = (temperature - 32) * 5 / 9 + 273.15;
+        convertedTemperature.textContent = convertedValue.toFixed(2);
+        convertedUnit.textContent = 'K';
+      } else if (fromUnit === 'kelvin' && toUnit === 'celsius') {
+        var convertedValue = temperature - 273.15;
+        convertedTemperature.textContent = convertedValue.toFixed(2);
+        convertedUnit.textContent = '°C';
+      } else if (fromUnit === 'kelvin' && toUnit === 'fahrenheit') {
+        var convertedValue = (temperature - 273.15) * 9 / 5 + 32;
+        convertedTemperature.textContent = convertedValue.toFixed(2);
+        convertedUnit.textContent = '°F';
+      } else {
+        convertedTemperature.textContent = temperature;
+        convertedUnit.textContent = '';
+      }
+    }
+  </script>
+</body>
+</html>
